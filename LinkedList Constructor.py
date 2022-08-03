@@ -22,7 +22,14 @@ class LinedList:
     def insert(self, index, value):
         # create new node and add node to the specified index
         pass
+    def printList(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
+
+
 
 
 my_linked_list = LinedList(4)
-print(my_linked_list.head.value)
+my_linked_list.printList()
