@@ -13,7 +13,15 @@ class LinedList:
 
     def append(self, value):
         # create new node and add node to the end
-        pass
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+        self.length +=1
+        return True
 
     def prepend(self, value):
         # create node and add node to he beginning
@@ -25,11 +33,12 @@ class LinedList:
     def printList(self):
         temp = self.head
         while temp is not None:
-            print(temp.value)
+            print(temp.value,end=" ")
             temp = temp.next
 
 
 
 
-my_linked_list = LinedList(4)
+my_linked_list = LinedList(1)
+my_linked_list.append(2)
 my_linked_list.printList()
