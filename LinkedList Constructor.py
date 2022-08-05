@@ -20,7 +20,7 @@ class LinedList:
         else:
             self.tail.next = new_node
             self.tail = new_node
-        self.length +=1
+        self.length += 1
         return True
 
     def prepend(self, value):
@@ -30,15 +30,36 @@ class LinedList:
     def insert(self, index, value):
         # create new node and add node to the specified index
         pass
-    def printList(self):
+
+    def print_list(self):
         temp = self.head
         while temp is not None:
-            print(temp.value,end=" ")
+            print(temp.value, end=" ")
             temp = temp.next
 
-
+    def pop(self):
+        if self.head is None:
+            return "List is empty"
+        elif self.length == 1:
+            value = self.head.value
+            self.head = None
+            self.tail = None
+            self.length -= 1
+            return value
+        else:
+            temp = self.head
+            prev = self.head
+            while temp.next:
+                prev = temp
+                temp = temp.next
+            value = temp.value
+            self.tail = prev
+            self.tail.next = None
+            self.length -= 1
+            return value
 
 
 my_linked_list = LinedList(1)
-my_linked_list.append(2)
-my_linked_list.printList()
+print(my_linked_list.pop())
+my_linked_list.print_list()
+print(my_linked_list.pop())
